@@ -7,7 +7,16 @@
 	"build": {
 			// Path is relative to the devcontainer.json file.
 			"dockerfile": "Dockerfile"
-			}
+			},
+
+			// set up the for The Platformio project area
+	"workspaceFolder": "/home/codespace/Documents",
+
+  	"workspaceMount": "source=${localWorkspaceFolder},target=/home/codespace/Documents/$project,type=bind",
+
+  	"features": {
+    			"docker-in-docker": "latest"
+  				}
 	
 	
 	// Features to add to the dev container. More info: https://containers.dev/features.
