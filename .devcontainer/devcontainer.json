@@ -10,6 +10,7 @@
 			},
 
 			// set up the for The Platformio project area
+
 	"workspaceFolder": "/home/codespace/Documents",
 
   	"workspaceMount": "source=${localWorkspaceFolder},target=/home/codespace/Documents/$project,type=bind",
@@ -26,7 +27,7 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	  "postCreateCommand": "chown /home/codespace/Documents codespace:codespace",
+	  "postCreateCommand": "sudo chown -R codespace:codespace /home/codespace/Documents"
 
 	// Configure tool-specific properties.
 	// "customizations": {},
