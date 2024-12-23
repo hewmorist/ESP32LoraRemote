@@ -11,13 +11,13 @@
 
 			// set up the for The Platformio project area
 
-	"workspaceFolder": "/home/codespace/Documents",
+	//"workspaceFolder": "/home/codespace/Documents/PLatformIO/Projects",
 
-  	"workspaceMount": "source=${localWorkspaceFolder},target=/home/codespace/Documents/$project,type=bind",
+  	//"workspaceMount": "source=${localWorkspaceFolder},target=/home/codespace/Documents/PlatformIO/Projects/$project,type=bind",
 
   	"features": {
-    			"docker-in-docker": "latest"
-  				},
+    		//	"docker-in-docker": "latest"
+  				}
 	
 	
 	// Features to add to the dev container. More info: https://containers.dev/features.
@@ -27,7 +27,7 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	  "postCreateCommand": "sudo chown -R codespace:codespace /home/codespace/Documents"
+	//  "postCreateCommand": "sudo chown -R codespace:codespace /home/codespace/Documents/PlatformIO"
 
 	// Configure tool-specific properties.
 	// "customizations": {},
