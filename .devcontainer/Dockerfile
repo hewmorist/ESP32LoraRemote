@@ -8,14 +8,7 @@ RUN apt-get update && apt-get install -y xz-utils \
 RUN wget -q https://raw.githubusercontent.com/platformio/platformio-core-installer/master/get-platformio.py
 
 RUN sudo PLATFORMIO_CORE_DIR=/opt/platformio python3 get-platformio.py \
-    && sudo ln -s /opt/platformio/penv/bin platformio
+    && sudo ln -s /opt/platformio/penv/bin /home/codespace/platformio
+
     
 
-
-USER ${CONTAINER_USER}
-ENV USER=${CONTAINER_USER}
-WORKDIR /home/${CONTAINER_USER}  
-ENV PATH=/opt/platformio/penv/bin:${PATH}
-ENTRYPOINT [sudo ln -s /opt/platformio/penv/bin /home/codespace/platformio]
-
-CMD ["/bin/bash", "-c"]
