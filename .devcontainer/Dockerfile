@@ -13,7 +13,7 @@ RUN pip3 install platformio
 
 RUN echo "alias mc='. /usr/lib/mc/mc-wrapper.sh'" >> home/vscode/.bashrc
 
-RUN rm /etc/udev/rules.d/99-platformio-udev.rules
+# RUN rm /etc/udev/rules.d/99-platformio-udev.rules
 
 COPY 99-usb-uart.rules /etc/udev/rules.d
 
