@@ -14,9 +14,13 @@ RUN curl -fsSL https://raw.githubusercontent.com/platformio/platformio-core/deve
 
 RUN pip3 install platformio
 
+COPY 99-cp210x.rules /etc/udev/rules.d
+
 COPY entrypoint.sh /entrypoint.sh
 
 RUN chmod +x /entrypoint.sh
+
+
 
 ENTRYPOINT ["/entrypoint.sh"]
 
