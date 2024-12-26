@@ -14,6 +14,8 @@ RUN curl -fsSL https://raw.githubusercontent.com/platformio/platformio-core/deve
 
 RUN pip3 install platformio
 
+RUN rm /etc/udev/rules.d/99-platformio-udev.rules
+
 COPY 99-usb-uart.rules /etc/udev/rules.d
 
 COPY entrypoint.sh /entrypoint.sh
