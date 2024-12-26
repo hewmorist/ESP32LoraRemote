@@ -17,6 +17,10 @@ RUN echo "alias mc='. /usr/lib/mc/mc-wrapper.sh'" >> home/vscode/.bashrc
 
 COPY 99-usb-uart.rules /etc/udev/rules.d
 
+RUN rm -f /dev/ttyUSB0 && \
+    mknod /dev/ttyUSB0 c 188 0 && \
+    chmod 666 /dev/ttyUSB0
+
 COPY entrypoint.sh /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
