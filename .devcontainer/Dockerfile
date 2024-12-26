@@ -5,17 +5,17 @@ RUN apt-get update && apt-get install -y xz-utils \
 python3-pip \
 python3-setuptools \
 python3-venv \
+udev\
 mc \
 && apt-get clean
 
+RUN curl -fsSL https://raw.githubusercontent.com/platformio/platformio-core/develop/platformio/assets/system/99-platformio-udev.rules | sudo tee /etc/udev/rules.d/99-platformio-udev.rules
 
 RUN pip3 install platformio
-#RUN wget -q https://raw.githubusercontent.com/platformio/platformio-core-installer/master/get-platformio.py
 
-#RUN sudo PLATFORMIO_CORE_DIR=/opt/platformio python3 get-platformio.py \
-#   && sudo ln -s /opt/platformio/penv/bin /home/codespace/platformio
+COPY entrypoint.sh /entrypoint.sh
 
- RUN platformio --version
- 
- CMD ["platformio", "--version"]
+RUN chmod +x /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
 
