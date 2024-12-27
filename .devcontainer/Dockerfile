@@ -31,7 +31,7 @@ RUN rm -f /dev/ttyUSB0 && \
 # Assign the RemoteUser to the dialout group to get access to the USB port
  RUN usermod -a -G dialout vscode
 
- RUN service udev restart
+# RUN service udev restart
 
 ENTRYPOINT ["/entrypoint.sh"]
 
