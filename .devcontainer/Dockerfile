@@ -19,9 +19,13 @@ COPY 99-usb-uart.rules /etc/udev/rules.d
 
 RUN rm -f /dev/ttyUSB0 && \
     mknod /dev/ttyUSB0 c 188 0 && \
-    chmod 666 /dev/ttyUSB0
+    chmod 666 /dev/ttyUSB0vs
 
-COPY entrypoint.sh /entrypoint.sh
+ COPY entrypoint.sh /entrypoint.sh
+
+ USER vscode
+
+ RUN sudo usermod -a -G dialout $USER
 
 ENTRYPOINT ["/entrypoint.sh"]
 
