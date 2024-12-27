@@ -27,5 +27,7 @@ RUN rm -f /dev/ttyUSB0 && \
 
  RUN sudo usermod -a -G dialout $USER
 
+ USER root
+
 ENTRYPOINT ["/entrypoint.sh"]
 
