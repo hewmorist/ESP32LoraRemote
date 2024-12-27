@@ -43,7 +43,7 @@
 			"extensions": [
 				"ms-vscode.cpptools",
 				"espressif.esp-idf-extension"
-			],
+			]
 		},
 		"codespaces": {
 			"settings": {
