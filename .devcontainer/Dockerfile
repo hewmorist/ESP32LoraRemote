@@ -11,9 +11,14 @@ mc \
 
 RUN pip3 install platformio
 
+# Setup to get Midnight Commander to exit in current directory
 RUN echo "alias mc='. /usr/lib/mc/mc-wrapper.sh'" >> home/vscode/.bashrc
 
-# RUN rm /etc/udev/rules.d/99-platformio-udev.rules
+# RUN rm -f /etc/udev/rules.d/99-platformio-udev.rules
+
+# Setup to access to the USB port.
+# If the Host is a WINDOWS 11 machine with WSl2 installed, run this in a powershell:
+#   usbipd attach --wsl --busid <busid>    
 
 COPY 99-usb-uart.rules /etc/udev/rules.d
 
@@ -23,7 +28,10 @@ RUN rm -f /dev/ttyUSB0 && \
 
  COPY entrypoint.sh /entrypoint.sh
 
+# Assign the RemoteUser to the dialout group to get access to the USB port
  RUN usermod -a -G dialout vscode
+
+ RUN service udev restart
 
 ENTRYPOINT ["/entrypoint.sh"]
 

@@ -9,12 +9,6 @@
 			"dockerfile": "Dockerfile"
 			},
 
-			// set up the for The Platformio project area
-
-	//"workspaceFolder": "/home/codespace/Documents/PLatformIO/Projects",
-
-  	//"workspaceMount": "source=${localWorkspaceFolder},target=/home/codespace/Documents/PlatformIO/Projects/$project,type=bind",
-
   	"features": {
     		//	"docker-in-docker": "latest"
   				},
@@ -31,7 +25,7 @@
 
 	// Configure tool-specific properties.
 	// "customizations": {},
-	"workspaceFolder": "/workspaces/ESP32C3LoraRemote",
+	//"workspaceFolder": "/workspaces/ESP32C3LoraRemote",
 
 	"mounts": [
 		//"source=extensionCache,target=/root/.vscode-server/extensions,type=volume"
@@ -67,9 +61,9 @@
 		}
 	},
 	
-	"runArgs": ["--privileged"]
+	"runArgs": ["--privileged"],
 
 
-	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	// "remoteUser": "root"
+	// More info: https://aka.ms/dev-containers-non-root.
+	 "remoteUser": "vscode"
 }
