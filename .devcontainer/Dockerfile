@@ -23,11 +23,7 @@ RUN rm -f /dev/ttyUSB0 && \
 
  COPY entrypoint.sh /entrypoint.sh
 
- USER vscode
-
- RUN sudo usermod -a -G dialout $USER
-
- USER root
+ RUN usermod -a -G dialout vscode
 
 ENTRYPOINT ["/entrypoint.sh"]
 
